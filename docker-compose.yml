@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  mongodb:
+    image: mongo:latest
+    networks: 
+      net-news:
+        ipv4_address: 172.26.0.2
+    ports: 
+      - 27017:27017
+  
+  core:
+    build: .
+    image: news-go:latest
+    networks: 
+      net-news:
+        ipv4_address: 172.26.0.3
+    ports: 
+      - 5000:5000
+    depends_on:
+      - "mongodb"
+
+networks:
+  net-news:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.26.0.0/16
+          gateway: 172.26.0.1

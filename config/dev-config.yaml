@@ -1,0 +1,5 @@
+tasknews: 
+  port: 5000 # External port for listening
+  refreshinterval: 1m # Refresh interval of getting articles from external feed
+  mongo:
+    address: mongodb://172.26.0.2:27017
