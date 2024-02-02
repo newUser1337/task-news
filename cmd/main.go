@@ -1,7 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"github.com/newUser1337/task-news/internal/app"
+)
 
 func main() {
-	fmt.Println("task-news")
+	app.BuildApp()
 }
