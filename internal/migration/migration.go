@@ -13,7 +13,7 @@ import (
 )
 
 func Migrate(cfg *config.Mongo) error {
-	mongConnection := strings.Join([]string{cfg.Address, cfg.DbName}, "/")
+	mongConnection := strings.Join([]string{cfg.Address, cfg.TableName}, "/")
 	migrationDriver, err := database.Open(mongConnection)
 	if err != nil {
 		return fmt.Errorf("failed to create instance %s", err)
@@ -25,7 +25,7 @@ func Migrate(cfg *config.Mongo) error {
 		}
 	}()
 
-	m, err := migrate.NewWithDatabaseInstance("file://migration", cfg.DbName, migrationDriver)
+	m, err := migrate.NewWithDatabaseInstance("file://migration", cfg.TableName, migrationDriver)
 	if err != nil {
 		return fmt.Errorf("failed to execute migration scripts: %w", err)
 	}

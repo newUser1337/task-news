@@ -22,7 +22,7 @@ services:
       - TASK_NEWS_CORE_PORT=5000
       - TASK_NEWS_CORE_REFRESH_INTERVAL=1m
       - TASK_NEWS_CORE_MONGO_ADDRESS=mongodb://172.26.0.2:27017
-      - TASK_NEWS_CORE_MONGO_DBNAME=news
+      - TASK_NEWS_CORE_MONGO_TABLENAME=news
 
 networks:
   net-news:

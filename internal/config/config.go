@@ -18,8 +18,8 @@ type Core struct {
 }
 
 type Mongo struct {
-	Address string `envconfig:"address"`
-	DbName  string `envconfig:"dbname"`
+	Address   string `envconfig:"address"`
+	TableName string `envconfig:"tablename"`
 }
 
 var configuration *Config
